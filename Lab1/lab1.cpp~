@@ -1,0 +1,72 @@
+#inlude <iostream>
+using namespace std;
+
+class System {
+    String currentUser, currentRoom;
+    User[] users;
+    Chatroom[] chatrooms;
+}
+
+System::System() {
+    currentUser ="";
+    currentRoom ="";
+}
+
+void System::addUser(User newUser) {
+    for(int i = 0; i < 3; i++){
+	if(users[i] == null) 
+	    users[i] = newUser;
+    }
+}
+
+void System::addRoom(Chatroom newRoom) {
+    for(int i = 0; i < 2; i++){
+	if(chatrooms[i] == null)
+	    chatrooms[i] = newRoom);
+    }
+}
+
+void System::setCurrentRoom(String currentRoom) {
+    this.currentRoom = currentRoom;
+}
+
+void System::setCurrentUser(String currentUser) {
+    this.currentUser = currentUser;
+}
+
+String System::getCurrentUser(){
+    return currentUser;
+}
+
+String System::getCurrentRoom(){
+    return currentRoom;
+}
+
+class Menu {
+    int menuSelection;
+    System currentSystem;
+    getCurrentSys();
+    setCurrentSys(System);
+    getMenuSelection();
+    setMenuSelection(int);
+}
+
+Menu::Menu (System primary){
+    currentSystem = primary;
+}
+
+void Menu::setMenuSelection(int select){
+    menuSelection = select;
+}
+
+int Menu::getMenuSelection(){
+    return menuSelection;
+}
+
+void Menu::setCurrentSys (System current){
+    currentSystem = current;
+}
+
+System Menu::getCurrentSystem(){
+    return currentSystem;
+}
