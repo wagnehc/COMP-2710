@@ -1,6 +1,12 @@
 #inlude <iostream>
 using namespace std;
 
+class User;
+class Chatroom;
+class Message;
+class Connection;
+class System;
+class Menul;
 
 class User {
     string userName;
@@ -51,10 +57,22 @@ Chatroom::broadcastMsg(string msgToSend) {
 
 
 class Message {
+private:
     string userName;
     string msgTxt;
-    string connectedUser;
-    string connectedRoom;
+public:
+    toString();
+}
+
+Message::Message(string userName, string msgTxt){
+    this.userName = userName;
+    this.msgTxt = msgTxt;
+}
+
+string Message::toString(){
+    string formattedMsg;
+    formattedMsg = userName + ": " + msgTxt;
+    return formattedMsg;
 }
 
 
@@ -62,12 +80,21 @@ class Message {
 class Connection {
     string newMsgs;
     string msgHistory;
-    string[] userNames;
+    string userNames[];
 }
+
+void Connection::addNewMsg(Message newMsg){
+    this.newMsgs += "\n" + newMsg;
+}
+
+string Connection::showMsgs(){
+    
+}
+
 class System {
     string currentUser, currentRoom;
-    User[] users;
-    Chatroom[] chatrooms;
+    User users[];
+    Chatroom chatrooms[];
 }
 
 System::System() {
@@ -82,10 +109,14 @@ void System::addUser(User newUser) {
     }
 }
 
-void System::addRoom(Chatroom newRoom) {
+bool System::addRoom(Chatroom newRoom) {
     for(int i = 0; i < 2; i++){
-	if(chatrooms[i] == null)
+	if(chatrooms[i] == null){
 	    chatrooms[i] = newRoom);
+	    return true;
+	}
+	else
+	    return false
     }
 }
 
@@ -106,12 +137,14 @@ String System::getCurrentRoom(){
 }
 
 class Menu {
-    int menuSelection;
-    System currentSystem;
-    getCurrentSys();
-    setCurrentSys(System);
-    getMenuSelection();
-    setMenuSelection(int);
+    private:		
+	int menuSelection;
+	System currentSystem;
+    public:
+	getCurrentSys();
+	setCurrentSys(System);
+	getMenuSelection();
+	setMenuSelection(int);
 }
 
 Menu::Menu (System primary){
